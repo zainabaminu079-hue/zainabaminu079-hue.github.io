@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zainab Aminu | Portfolio</title>
+  <style>
+    /* --- Global Styles & Reset --- */
+    * { 
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box; 
+    }
+
+    html { 
+      scroll-behavior: smooth; 
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    }
+
+    body { 
+      color: #333; 
+      line-height: 1.6; 
+      background-color: #faf9ff; 
+    }
+
+    .container { 
+      width: 90%; 
+      max-width: 1100px; 
+      margin: 0 auto; 
+      padding: 60px 20px; 
+    }
+
+    section {
+      text-align: center;
+    }
+
+    .bg-light { 
+      background-color: #f1eeff; 
+    }
+
+    .section-title { 
+      font-size: 2.5rem; 
+      margin-bottom: 40px; 
+      color: #4b3793; 
+      position: relative; 
+    }
+
+    .section-title::after { 
+      content: ""; 
+      display: block; 
+      width: 60px; 
+      height: 4px; 
+      background-color: #8a63ff; 
+      margin: 10px auto 0 auto; 
+      border-radius: 2px; 
+    }
+
+    /* --- Navigation Bar --- */
+    .navbar { 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      padding: 20px 5%; 
+      background-color: #ffffff; 
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+      position: sticky; 
+      top: 0; 
+      z-index: 1000; 
+    }
+
+    .navbar .logo { 
+      font-size: 1.5rem; 
+      font-weight: bold; 
+      color: #4b3793; 
+    }
+
+    .navbar ul { 
+      display: flex; 
+      list-style: none; 
+    }
+
+    .navbar ul li { 
+      margin-left: 20px; 
+    }
+
+    .navbar ul li a { 
+      text-decoration: none; 
+      color: #555; 
+      font-weight: 600; 
+      transition: color 0.3s ease; 
+    }
+
+    .navbar ul li a:hover { 
+      color: #8a63ff; 
+    }
+
+    /* --- Hero / About Section --- */
+    .hero-section { 
+      background: linear-gradient(135deg, #e0d8ff 0%, #f6f4ff 100%); 
+      min-height: 70vh; 
+      display: flex; 
+      align-items: center; 
+    }
+
+    .hero-section h1 { 
+      font-size: 3.5rem; 
+      margin-bottom: 20px;
+      color: #4b3793;
+    }
+
+    .hero-section p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      background-color: #4b3793;
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #8a63ff;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(138, 99, 255, 0.4);
+    }
+
+    /* --- Skills Section --- */
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      list-style: none;
+      gap: 15px;
+    }
+
+    .skills-list li {
+      background-color: white;
+      color: #4b3793;
+      padding: 10px 25px;
+      border-radius: 20px;
+      font-weight: 600;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .skills-list li:hover {
+      transform: translateY(-5px);
+      background-color: #4b3793;
+      color: white;
+    }
+
+    /* --- Projects Section --- */
+    #projects .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    #projects .section-title {
+      grid-column: 1 / -1;
+    }
+
+    .project-card {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      text-align: left;
+      border-top: 4px solid #8a63ff;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(75, 55, 147, 0.15);
+    }
+
+    .project-card h3 {
+      color: #4b3793;
+      margin-bottom: 15px;
+    }
+
+    /* --- Contact Section --- */
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .contact-form input, 
+    .contact-form textarea {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      outline: none;
+      font-size: 1rem;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .contact-form input:focus, 
+    .contact-form textarea:focus {
+      border-color: #8a63ff;
+      box-shadow: 0 0 8px rgba(138, 99, 255, 0.2);
+    }
+
+    .contact-form button {
+      padding: 15px;
+      background-color: #4b3793;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #8a63ff;
+      transform: scale(1.02);
+    }
+
+    /* --- Footer Section --- */
+    footer {
+      background-color: #4b3793;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+    }
+
+    /* --- Responsive Adjustments (Mobile) --- */
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .hero-section h1 {
+        font-size: 2.5rem;
+      }
+      #projects .container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo">MyPortfolio</div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero / About Section -->
+  <section id="about" class="hero-section">
+    <div class="container">
+      <h1>Hi, I'm Zainab Aminu</h1>
+      <p>A passionate web developer creating clean, functional, and responsive websites.</p>
+      <a href="#contact" class="btn">Get In Touch</a>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="bg-light">
+    <div class="container">
+      <h2 class="section-title">My Skills</h2>
+      <ul class="skills-list">
+        <li>HTML5</li>
+        <li>CSS3</li>
+        <li>Responsive Design</li>
+        <li>Flexbox & Grid</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">My Projects</h2>
+      
+      <div class="project-card">
+        <h3>Project One</h3>
+        <p>A modern e-commerce landing page built with pure HTML and CSS.</p>
+      </div>
+
+      <div class="project-card">
+        <h3>Project Two</h3>
+        <p>A responsive dashboard UI layout focusing on clean data visualization.</p>
+      </div>
+
+      <div class="project-card">
+        <h3>Project Three</h3>
+        <p>An interactive photography portfolio displaying grid-based image galleries.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="bg-light">
+    <div class="container">
+      <h2 class="section-title">Contact Me</h2>
+      <p>Feel free to reach out for collaborations or just a friendly chat!</p>
+      
+      <form class="contact-form">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2026 Zainab Aminu. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
